@@ -1,0 +1,21 @@
+<context-param>
+<param-name>uploadBaseDir</param-name>
+<param-value>C:/xampp/htdocs/StudentAdmissionPortal/PHP</param-value>
+</context-param>
+<!-- ===== Session handling filter ===== -->
+<filter>
+<filter-name>AuthFilter</filter-name>
+<filter-class>com.studentportal.filter.AuthFilter</filter-class>
+</filter>
+<filter-mapping>
+<filter-name>AuthFilter</filter-name>
+<url-pattern>/*</url-pattern> <!-- checks EVERY request -->
+</filter-mapping>
+<servlet>
+<servlet-name>FileServlet</servlet-name>
+<servlet-class>com.studentportal.servlet.FileServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>FileServlet</servlet-name>
+<url-pattern>/FileServlet</url-pattern>
+</servlet-mapping>

@@ -1,0 +1,253 @@
+/* ==================================================================
+File : style.css
+Purpose : Styles for the Student Registration Form (Question 1).
+Also reused by the PHP admin pages for the same look.
+Colours : Blue (#1f4e8c), White (#ffffff), Gray (#f2f4f7 / #6b7280)
+================================================================== */
+/* ---------- Basic reset ---------- */
+* {
+box-sizing: border-box; /* width includes padding and border */
+margin: 0;
+padding: 0;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: #f2f4f7; /* light gray page background */
+color: #222222;
+line-height: 1.5;
+min-height: 100vh;
+display: flex; /* lets the footer stay at the bottom */
+flex-direction: column;
+}
+/* ---------- Simple header ---------- */
+
+.site-header {
+background-color: #1f4e8c; /* main blue */
+color: #ffffff;
+text-align: center;
+padding: 18px 12px;
+}
+.site-header h1 {
+font-size: 26px;
+letter-spacing: 0.5px;
+}
+.site-header p {
+font-size: 14px;
+opacity: 0.9;
+}
+/* ---------- Centre aligned container ---------- */
+.container {
+flex: 1; /* fills remaining height above footer */
+width: 100%;
+max-width: 720px;
+margin: 30px auto; /* auto left/right = horizontally centred */
+padding: 0 16px;
+}
+/* ---------- Card style box ---------- */
+.card {
+background-color: #ffffff;
+border: 1px solid #d9dee5;
+border-top: 4px solid #1f4e8c; /* blue strip on top of the card */
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+padding: 28px 32px;
+}
+.card-title {
+color: #1f4e8c;
+font-size: 22px;
+text-align: center;
+}
+.card-subtitle {
+text-align: center;
+color: #6b7280;
+font-size: 13px;
+margin-bottom: 20px;
+}
+/* ---------- Form layout ---------- */
+.form-group {
+margin-bottom: 16px;
+width: 100%;
+}
+/* Two fields in one line on wide screens */
+.form-row {
+display: flex;
+gap: 16px;
+}
+label {
+display: block;
+font-weight: bold;
+font-size: 14px;
+margin-bottom: 6px;
+
+color: #333333;
+}
+.req {
+color: #c62828; /* red star for required fields */
+}
+/* ---------- Styled input fields ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="file"],
+select,
+textarea {
+width: 100%;
+padding: 10px 12px;
+font-size: 14px;
+font-family: inherit;
+border: 1px solid #b8c0cc;
+border-radius: 5px;
+background-color: #ffffff;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+textarea {
+resize: vertical; /* user can only resize up / down */
+}
+/* Blue glow when the field is active */
+input:focus,
+select:focus,
+textarea:focus {
+outline: none;
+border-color: #1f4e8c;
+box-shadow: 0 0 0 3px rgba(31, 78, 140, 0.15);
+}
+/* Red border added by script.js when a field is invalid */
+.input-error {
+border-color: #c62828 !important;
+background-color: #fff6f6 !important;
+}
+/* Green border added by script.js when a field is valid */
+.input-success {
+border-color: #2e7d32 !important;
+}
+/* ---------- Radio buttons ---------- */
+.radio-group {
+display: flex;
+gap: 24px;
+padding: 6px 0;
+}
+.radio-group label {
+font-weight: normal;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+cursor: pointer;
+}
+/* ---------- Hints and error messages ---------- */
+.hint {
+
+display: block;
+font-size: 12px;
+color: #6b7280;
+margin-top: 4px;
+}
+.error {
+display: block;
+font-size: 12px;
+color: #c62828; /* red error text */
+margin-top: 4px;
+min-height: 14px; /* keeps layout steady when message appears */
+}
+.strength {
+display: block;
+font-size: 12px;
+font-weight: bold;
+margin-top: 2px;
+}
+.strength.weak { color: #c62828; }
+.strength.medium { color: #ef6c00; }
+.strength.strong { color: #2e7d32; }
+/* Image preview shown after choosing a profile picture */
+.image-preview {
+display: none; /* hidden until an image is selected */
+width: 90px;
+height: 90px;
+object-fit: cover;
+border: 2px solid #1f4e8c;
+border-radius: 6px;
+margin-top: 8px;
+}
+/* ---------- Styled buttons ---------- */
+.button-row {
+display: flex;
+gap: 12px;
+margin-top: 8px;
+}
+.btn {
+display: inline-block;
+padding: 10px 26px;
+font-size: 15px;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-decoration: none; /* used for <a class="btn"> links too */
+text-align: center;
+transition: background-color 0.2s;
+}
+.btn-primary {
+background-color: #1f4e8c;
+color: #ffffff;
+}
+.btn-primary:hover {
+background-color: #163a69; /* darker blue on hover */
+}
+.btn-secondary {
+background-color: #9aa3ae; /* gray */
+color: #ffffff;
+}
+
+.btn-secondary:hover {
+background-color: #7b8590;
+}
+/* ---------- Overall form message ---------- */
+.form-message {
+margin-top: 14px;
+font-size: 14px;
+text-align: center;
+}
+.form-message.failure {
+color: #c62828;
+}
+.form-message.success {
+color: #2e7d32;
+}
+/* ---------- Simple footer ---------- */
+.site-footer {
+background-color: #2b2f36; /* dark gray */
+color: #d1d5db;
+text-align: center;
+font-size: 13px;
+padding: 14px 10px;
+}
+/* ---------- Responsive design (media queries) ---------- */
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+.container {
+margin: 20px auto;
+}
+.card {
+padding: 22px 20px;
+}
+}
+/* Mobile phones */
+@media (max-width: 576px) {
+.site-header h1 {
+font-size: 20px;
+}
+.form-row {
+flex-direction: column; /* stack the side-by-side fields */
+gap: 0;
+}
+.radio-group {
+flex-direction: column;
+gap: 6px;
+}
+.button-row {
+flex-direction: column; /* full width buttons */
+}
+.btn {
+width: 100%;
+}
+}
